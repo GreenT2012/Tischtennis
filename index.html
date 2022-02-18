@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    
+    <link rel=stylesheet href="./styles/main.css">
+    <script src="./script/script.js"></script>
+
+    <title>Tischtennis</title>
+</head>
+<body>
+    <div class="container--wrap">
+        
+        <div class="container--name">
+            <div class="spieler1">
+                <div class="eingabe1">
+                    <label for="name1">Spieler 1:</label>
+                    <input type="text" id="name1" name="spieler1">
+                </div>
+                <div class="ausgabe1">
+                    Spieler 1
+                </div>
+            </div>
+            <button id="los" class="button" type="button">Start!</button>
+            <div class="spieler2">
+                <div class="eingabe2">
+                    <label for="name2">Spieler 2:</label>
+                    <input type="text" id="name2" name="spieler2">
+                </div>
+                <div class="ausgabe2">
+                    Spieler 2
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div class="ausgabe3">
+        <div class="links">
+            <div>
+                <h3 id="counter-label1">0</h3>
+            </div>
+            
+                <div>
+                    <button class="button button-counter" onclick="incrementClick1(); sideclick();" >+1</button>
+                    
+                </div>
+        </div>
+        <div class="mitte">
+            <img id=arrow class="arrow-left" src="./right-arrow-6_icon-icons.com_69947.svg">
+            <button class="button" onclick="resetCounter1()">Reset</button>
+        </div>
+        <div class="rechts">
+            <div>
+                <h3 id="counter-label2">0</h3>
+            </div>
+            
+                <div>
+                    <button class="button button-counter" onclick="incrementClick2(); sideclick();">+1</button>
+                </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('#los').onclick = function () {
+    document.querySelector('.ausgabe1').innerHTML = document.querySelector("#name1").value;
+    document.querySelector('.ausgabe2').innerHTML = document.querySelector("#name2").value;
+    }
+
+    var counterVal1 = 0;
+
+        function incrementClick1() {
+            updateDisplay1(++counterVal1);
+        }
+
+        function resetCounter1() {
+            counterVal1 = 0;
+            updateDisplay1(counterVal1);
+            counterVal2 = 0;
+            updateDisplay2(counterVal2);
+            counterVal3 = 0;
+            updateDisplay3(counterVal3);
+            classChange1();
+        }
+
+        function updateDisplay1(val1) {
+            document.getElementById("counter-label1").innerHTML = val1;
+        }
+    var counterVal2 = 0;
+
+        function incrementClick2() {
+            updateDisplay2(++counterVal2);
+        }
+
+
+        function updateDisplay2(val2) {
+            document.getElementById("counter-label2").innerHTML = val2;
+        }
+    var counterVal3 = 0;
+
+        function sideclick() {
+            updateDisplay3(++counterVal3);
+            classChange1();
+            
+        }
+
+        function updateDisplay3(val3) {
+            document.getElementById("seitenwechsel").innerHTML = val3;
+        }
+
+        function classChange1() {
+            if (counterVal3 % 2 == 0)
+            document.getElementById("arrow").classList.toggle('arrow-left');
+        }
+        function classChange2() {
+            document.getElementById("arrow").classList.add('arrow-left');
+        }
+        
+
+        /*function isEven(val3) {
+            console.log("val3", val3);
+            if (val3 % 2 == 0) {
+                classChange1();
+            }  else { 
+                classChange2();
+            }
+            
+        }*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+body{
+    
+    font-family: 'Bebas Neue' ;
+    background-color: chocolate;
+    background-image: linear-gradient(90deg, rgb(7, 70, 10) 0%, rgba(103, 182, 39, 0.8));
+}
+
+.button{
+    cursor: pointer;
+    font-family: 'Bebas Neue';
+    font-size: 2em;
+    height:3rem;
+    width:15rem;
+    background-color: orange;
+    border:0px;
+    border-radius: 30px;
+    box-shadow: 5px 3px 3px;
+}
+
+.container--wrap{
+    
+    max-height: 50%;
+    display:flex;
+    flex-direction: column;
+    flex-grow: 0;
+}
+.container--name{
+    max-width:100%;
+    display:flex;
+    margin:5% 10% 5% 10%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#name1, #name2{
+    border-radius: 30px;
+    
+}
+
+#los{
+    
+    
+    display:inline-block;
+    
+}
+.spieler1, .spieler2{
+        
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+
+.ausgabe1, .ausgabe2 {
+    min-height:100px;
+    
+    font-size: 5em;
+    justify-content: center;
+    margin-top: 20%;
+    
+}
+
+.ausgabe3{
+    max-height: 470px;
+    margin:1% 10% 1% 10%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-grow: 0;
+}
+
+.mitte, .links, .rechts {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 50px;
+}
+
+#counter-label1, #counter-label2{
+        text-align: center;
+    font-size: 10em;
+}
+
+.mitte{
+    justify-content: space-between;
+}
+
+
+
+.arrow-left{
+    transform: scaleX(-1);
+    margin:0 0 5% 0;
+}
+.arrow-right{
+    transform: scaleX(1);
+    margin:0 0 5% 0;
+}
+
