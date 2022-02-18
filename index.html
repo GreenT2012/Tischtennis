@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
     <link rel=stylesheet href="./styles/main.css">
     <script src="./script/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+
 
     <title>Tischtennis</title>
 </head>
+
 <body>
     <div class="container--wrap">
-        
+
         <div class="container--name">
             <div class="spieler1">
                 <div class="eingabe1">
@@ -36,20 +41,21 @@
                     Spieler 2
                 </div>
             </div>
-            
+
         </div>
-        
+
     </div>
     <div class="ausgabe3">
         <div class="links">
             <div>
                 <h3 id="counter-label1">0</h3>
             </div>
-            
-                <div>
-                    <button class="button button-counter" onclick="incrementClick1(); sideclick();" >+1</button>
-                    
-                </div>
+
+            <div>
+                <button class="button button-counter" onclick="incrementClick1(); sideclick();">+1</button>
+                <button class="button button-counter" onclick="incrementClick11();">-1</button>
+
+            </div>
         </div>
         <div class="mitte">
             <img id=arrow class="arrow-left" src="./right-arrow-6_icon-icons.com_69947.svg">
@@ -59,77 +65,159 @@
             <div>
                 <h3 id="counter-label2">0</h3>
             </div>
-            
-                <div>
-                    <button class="button button-counter" onclick="incrementClick2(); sideclick();">+1</button>
-                </div>
+
+            <div>
+                <button class="button button-counter" onclick="incrementClick2(); sideclick();">+1</button>
+                <button class="button button-counter" onclick="incrementClick22();">-1</button>
+            </div>
         </div>
     </div>
-    <script>
-        document.querySelector('#los').onclick = function () {
-    document.querySelector('.ausgabe1').innerHTML = document.querySelector("#name1").value;
-    document.querySelector('.ausgabe2').innerHTML = document.querySelector("#name2").value;
+    <h3 id="seitenwechsel">0</h3>
+
+</body>
+<script>
+    document.querySelector('#los').onclick = function () {
+        document.querySelector('.ausgabe1').innerHTML = document.querySelector("#name1").value;
+        document.querySelector('.ausgabe2').innerHTML = document.querySelector("#name2").value;
     }
 
     var counterVal1 = 0;
 
-        function incrementClick1() {
-            updateDisplay1(++counterVal1);
-        }
+    function incrementClick1() {
+        updateDisplay1(++counterVal1);
+        winthegame();
 
-        function resetCounter1() {
-            counterVal1 = 0;
-            updateDisplay1(counterVal1);
-            counterVal2 = 0;
-            updateDisplay2(counterVal2);
-            counterVal3 = 0;
-            updateDisplay3(counterVal3);
-            classChange1();
-        }
 
-        function updateDisplay1(val1) {
-            document.getElementById("counter-label1").innerHTML = val1;
-        }
+    }
+    function incrementClick11() {
+        updateDisplay1(--counterVal1);
+    }
+
+    function resetCounter1() {
+        counterVal1 = 0;
+        updateDisplay1(counterVal1);
+        counterVal2 = 0;
+        updateDisplay2(counterVal2);
+        counterVal3 = 0;
+        updateDisplay3(counterVal3);
+        classChange1();
+
+    }
+
+    function updateDisplay1(val1) {
+        document.getElementById("counter-label1").innerHTML = val1;
+    }
     var counterVal2 = 0;
 
-        function incrementClick2() {
-            updateDisplay2(++counterVal2);
-        }
+    function incrementClick2() {
+        updateDisplay2(++counterVal2);
+        winthegame();
+    }
+    function incrementClick22() {
+        updateDisplay2(--counterVal2);
+    }
 
 
-        function updateDisplay2(val2) {
-            document.getElementById("counter-label2").innerHTML = val2;
-        }
+    function updateDisplay2(val2) {
+        document.getElementById("counter-label2").innerHTML = val2;
+    }
     var counterVal3 = 0;
 
-        function sideclick() {
-            updateDisplay3(++counterVal3);
-            classChange1();
-            
-        }
+    function sideclick() {
+        updateDisplay3(++counterVal3);
+        classChange1();
 
-        function updateDisplay3(val3) {
-            document.getElementById("seitenwechsel").innerHTML = val3;
-        }
+    }
 
-        function classChange1() {
-            if (counterVal3 % 2 == 0)
+    function updateDisplay3(val3) {
+        document.getElementById("seitenwechsel").innerHTML = val3;
+    }
+
+    function classChange1() {
+        if (counterVal3 >= 20){
             document.getElementById("arrow").classList.toggle('arrow-left');
+            console.log('2 x seitenwechsel')
         }
-        function classChange2() {
-            document.getElementById("arrow").classList.add('arrow-left');
+        else {
+            if (counterVal3 % 2 == 0){
+            document.getElementById("arrow").classList.toggle('arrow-left');
+            console.log('1 x seitenwechsel')}
         }
         
+    }
 
-        /*function isEven(val3) {
-            console.log("val3", val3);
-            if (val3 % 2 == 0) {
-                classChange1();
-            }  else { 
-                classChange2();
-            }
+
+
+    function winthegame() {
+        if ((counterVal1 == 11 && counterVal2 <= 9) || (counterVal2 == 11 && counterVal1 <= 9)) {
+            fire(0.25, {
+                spread: 26,
+                startVelocity: 55,
+            });
+            fire(0.2, {
+                spread: 60,
+            });
+            fire(0.35, {
+                spread: 100,
+                decay: 0.91,
+                scalar: 0.8
+            });
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 25,
+                decay: 0.92,
+                scalar: 1.2
+            });
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 45,
+            });
+            console.log('11 : 9 or 9 : 11')
+
+        }
+        else {if ((counterVal1 > 11) && (counterVal1 - counterVal2 >= 2) || (counterVal2 > 11) && (counterVal2 - counterVal1 >= 2)) {
+            fire(0.25, {
+                spread: 26,
+                startVelocity: 55,
+            });
+            fire(0.2, {
+                spread: 60,
+            });
+            fire(0.35, {
+                spread: 100,
+                decay: 0.91,
+                scalar: 0.8
+            });
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 25,
+                decay: 0.92,
+                scalar: 1.2
+            });
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 45,
+            });
+            console.log('eine seite 2 größer')
+        }
             
-        }*/
-    </script>
-</body>
+        }
+
+
+
+    }
+    var count = 200;
+    var defaults = {
+        origin: { y: 0.7 }
+    };
+
+    function fire(particleRatio, opts) {
+        confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+        }));
+    }
+
+
+</script>
+
 </html>
