@@ -80,19 +80,19 @@
         document.querySelector('.ausgabe1').innerHTML = document.querySelector("#name1").value;
         document.querySelector('.ausgabe2').innerHTML = document.querySelector("#name2").value;
     }
-
+    
     var counterVal1 = 0;
-
+    // zählt die punkte von Spieler 1
     function incrementClick1() {
         updateDisplay1(++counterVal1);
         winthegame();
 
 
-    }
+    }// zählt die punkte runter von Spieler 1
     function incrementClick11() {
         updateDisplay1(--counterVal1);
     }
-
+    // resettet alles, fängt also das spiel von vorne an
     function resetCounter1() {
         counterVal1 = 0;
         updateDisplay1(counterVal1);
@@ -108,11 +108,11 @@
         document.getElementById("counter-label1").innerHTML = val1;
     }
     var counterVal2 = 0;
-
+    // zählt die punkte von Spieler 2
     function incrementClick2() {
         updateDisplay2(++counterVal2);
         winthegame();
-    }
+    }// zählt die punkte runter von Spieler 2
     function incrementClick22() {
         updateDisplay2(--counterVal2);
     }
@@ -122,7 +122,7 @@
         document.getElementById("counter-label2").innerHTML = val2;
     }
     var counterVal3 = 0;
-
+    //sorgt dafür dass angezeigt wird wer aufschlag hat
     function sideclick() {
         updateDisplay3(++counterVal3);
         classChange1();
@@ -147,7 +147,7 @@
     }
 
 
-
+    //steuert das konfetti
     function winthegame() {
         if ((counterVal1 == 11 && counterVal2 <= 9) || (counterVal2 == 11 && counterVal1 <= 9)) {
             fire(0.25, {
