@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +14,88 @@
     <script src="./script/bootstrap.js.map"></script>
     <!-- <script src="./script/script.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
     <title>Spieler</title>
 </head>
+
 <body>
     <h1 class="heading">Spielerübersicht</h1>
+    <form>
+        <div class="form-group ">
+            <label for="exampleInputEmail1">Spielername</label>
+            <input type="text" class="form-control" id="username" placeholder="Name">
+
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Hinzufügen</button>
+
+    </form>
+
+    <div id="fulltable" class="table">
+
+
+
+        <table class="table table-striped table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Gespielte Spiele</th>
+                    <th scope="col">Punkte</th>
+                </tr>
+            </thead>
+            <tbody id="tabledata">
+                <tr>
+                    <th scope="row">1</th>
+                    <td id="name">Niklas</td>
+                    <td id="nr-of-games">0</td>
+                    <td id="points">0</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td id="name">Marius</td>
+                    <td id="nr-of-games">0</td>
+                    <td id="points">0</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td id="name">Posi</td>
+                    <td id="nr-of-games">0</td>
+                    <td id="points">0</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td id="name">Timo</td>
+                    <td id="nr-of-games">0</td>
+                    <td id="points">0</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td id="name">Joshua</td>
+                    <td id="nr-of-games">0</td>
+                    <td id="points">0</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td id="name">Matze</td>
+                    <td id="nr-of-games">0</td>
+                    <td id="points">0</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td id="name">Gast 1</td>
+                    <td id="nr-of-games">0</td>
+                    <td id="points">0</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td id="name">Gast 2</td>
+                    <td id="nr-of-games">0</td>
+                    <td id="points">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </body>
+
 </html>
