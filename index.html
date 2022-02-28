@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./styles/bootstrap.css">
     <link rel=stylesheet href="./styles/main.css">
     <script src="script/bootstrap.js"></script>
-    <script src="./script/bootstrap.js.map"></script>
+    <!-- <script src="./script/bootstrap.js.map"></script> -->
     <!-- <script src="./script/script.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="script/table.js"></script>
@@ -22,19 +22,25 @@
 
 <body>
     <section class="test">
+        <div class="button-container">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Spieler auswählen
+            </button>
 
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
-            aria-controls="offcanvasWithBackdrop">Spieler auswählen
-        </button>
+            <a class="btn btn-primary np" href="./newplayer.html">Spieler hinzufügen</a>
+            </button>
+        </div>
+        <div class="button-container">
+            </button>
 
-        <a class="btn btn-primary np"  href="./newplayer.html">Spieler hinzufügen</a>
-        </button>
-        
+            <a class="btn btn-primary np" type="button" onclick="">Spieler hinzufügen</a>
+            </button>
+        </div>
 
     </section>
 
 
-
+    <!-- side offcanvas -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop"
         aria-labelledby="offcanvasWithBackdropLabel">
         <div class="offcanvas-header">
@@ -42,7 +48,94 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <p>.....</p>
+            <p>
+            <div id="fulltable" class="table">
+
+
+                <!-- Tabelle -->
+
+                <table class="table table-striped table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Gespielte Spiele</th>
+                            <th scope="col">Punkte</th>
+                            <th scope="col">P1</th>
+                            <th scope="col">P2</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabledata">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td id="name">Niklas</td>
+                            <td id="nr-of-games">0</td>
+                            <td id="points">0</td>
+                            <td>
+                                <input type="checkbox" id="player">
+                            </td>
+                            <td id="player2">0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td id="name">Marius</td>
+                            <td id="nr-of-games">0</td>
+                            <td id="points">0</td>
+                            <td id="player1">0</td>
+                            <td id="player2">0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td id="name">Posi</td>
+                            <td id="nr-of-games">0</td>
+                            <td id="points">0</td>
+                            <td id="player1">0</td>
+                            <td id="player2">0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td id="name">Timo</td>
+                            <td id="nr-of-games">0</td>
+                            <td id="points">0</td>
+                            <td id="player1">0</td>
+                            <td id="player2">0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td id="name">Joshua</td>
+                            <td id="nr-of-games">0</td>
+                            <td id="points">0</td>
+                            <td id="player1">0</td>
+                            <td id="player2">0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td id="name">Matze</td>
+                            <td id="nr-of-games">0</td>
+                            <td id="points">0</td>
+                            <td id="player1">0</td>
+                            <td id="player2">0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td id="name">Gast 1</td>
+                            <td id="nr-of-games">0</td>
+                            <td id="points">0</td>
+                            <td id="player1">0</td>
+                            <td id="player2">0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td id="name">Gast 2</td>
+                            <td id="nr-of-games">0</td>
+                            <td id="points">0</td>
+                            <td id="player1">0</td>
+                            <td id="player2">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </p>
         </div>
     </div>
 
@@ -65,7 +158,7 @@
                         <label for="name2">Spieler 2:</label><br>
                         <input type="text" id="name2" name="spieler2">
                     </div>
-                    <div class="ausgabe2">
+                    <div class="ausgabe2" id="spieler2">
                         Spieler 2
                     </div>
                 </div>
@@ -102,161 +195,8 @@
         </div>
     </div>
     <h3 id="seitenwechsel">0</h3>
-
+    <script src="script/mainscript.js"></script>
 </body>
-<script>
 
-    document.querySelector('#los').addEventListener("keydown", (evt) => {
-        if (evt.key === "Enter") {
-            insertName()
-        }
-    })
-
-
-    function insertName() {
-        document.querySelector('.ausgabe1').innerHTML = document.querySelector("#name1").value;
-        document.querySelector('.ausgabe2').innerHTML = document.querySelector("#name2").value;
-    }
-
-    var counterVal1 = 0;
-    // zählt die punkte von Spieler 1
-    function incrementClick1() {
-        updateDisplay1(++counterVal1);
-        winthegame();
-
-
-    }// zählt die punkte runter von Spieler 1
-    function incrementClick11() {
-        updateDisplay1(--counterVal1);
-    }
-    // resettet alles, fängt also das spiel von vorne an
-    function resetCounter1() {
-        counterVal1 = 0;
-        updateDisplay1(counterVal1);
-        counterVal2 = 0;
-        updateDisplay2(counterVal2);
-        counterVal3 = 0;
-        updateDisplay3(counterVal3);
-        classChange1();
-
-    }
-
-    function updateDisplay1(val1) {
-        document.getElementById("counter-label1").innerHTML = val1;
-    }
-    var counterVal2 = 0;
-    // zählt die punkte von Spieler 2
-    function incrementClick2() {
-        updateDisplay2(++counterVal2);
-        winthegame();
-    }// zählt die punkte runter von Spieler 2
-    function incrementClick22() {
-        updateDisplay2(--counterVal2);
-    }
-
-
-    function updateDisplay2(val2) {
-        document.getElementById("counter-label2").innerHTML = val2;
-    }
-    var counterVal3 = 0;
-    //sorgt dafür dass angezeigt wird wer aufschlag hat
-    function sideclick() {
-        updateDisplay3(++counterVal3);
-        classChange1();
-
-    }
-
-    function updateDisplay3(val3) {
-        document.getElementById("seitenwechsel").innerHTML = val3;
-    }
-
-    function classChange1() {
-        if (counterVal3 >= 20) {
-            document.getElementById("arrow").classList.toggle('arrow-left');
-            console.log('2 x seitenwechsel')
-        }
-        else {
-            if (counterVal3 % 2 == 0) {
-                document.getElementById("arrow").classList.toggle('arrow-left');
-                console.log('1 x seitenwechsel')
-            }
-        }
-
-    }
-
-
-    //steuert das konfetti
-    function winthegame() {
-        if ((counterVal1 == 11 && counterVal2 <= 9) || (counterVal2 == 11 && counterVal1 <= 9)) {
-            fire(0.25, {
-                spread: 26,
-                startVelocity: 55,
-            });
-            fire(0.2, {
-                spread: 60,
-            });
-            fire(0.35, {
-                spread: 100,
-                decay: 0.91,
-                scalar: 0.8
-            });
-            fire(0.1, {
-                spread: 120,
-                startVelocity: 25,
-                decay: 0.92,
-                scalar: 1.2
-            });
-            fire(0.1, {
-                spread: 120,
-                startVelocity: 45,
-            });
-            console.log('11 : 9 or 9 : 11')
-
-        }
-        else {
-            if ((counterVal1 > 11) && (counterVal1 - counterVal2 >= 2) || (counterVal2 > 11) && (counterVal2 - counterVal1 >= 2)) {
-                fire(0.25, {
-                    spread: 26,
-                    startVelocity: 55,
-                });
-                fire(0.2, {
-                    spread: 60,
-                });
-                fire(0.35, {
-                    spread: 100,
-                    decay: 0.91,
-                    scalar: 0.8
-                });
-                fire(0.1, {
-                    spread: 120,
-                    startVelocity: 25,
-                    decay: 0.92,
-                    scalar: 1.2
-                });
-                fire(0.1, {
-                    spread: 120,
-                    startVelocity: 45,
-                });
-                console.log('eine seite 2 größer')
-            }
-
-        }
-
-
-
-    }
-    var count = 200;
-    var defaults = {
-        origin: { y: 0.7 }
-    };
-
-    function fire(particleRatio, opts) {
-        confetti(Object.assign({}, defaults, opts, {
-            particleCount: Math.floor(count * particleRatio)
-        }));
-    }
-
-
-</script>
 
 </html>

@@ -16,6 +16,19 @@ body {
 
 }
 
+.test {
+    display: flex;
+    justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 1rem;
+}
+
 .btn-primary {
 
     margin-left: auto;
@@ -180,7 +193,7 @@ body {
 
 /*tabelle*/
 
-.table{
+.table {
     max-width: 45rem;
     margin-left: auto;
     margin-right: auto;
@@ -188,10 +201,9 @@ body {
 }
 
 /*userinput*/
-.form-group{
-    color:white;
-    max-width:45rem;
-    margin-left:auto;
+.form-group {
+    color: white;
+    max-width: 45rem;
+    margin-left: auto;
     margin-right: auto;
 }
-
