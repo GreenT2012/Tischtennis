@@ -26,7 +26,8 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
-    margin: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .btn-primary {
@@ -92,7 +93,7 @@ body {
 .container--name {
     max-width: 100%;
     display: flex;
-    margin: 3em 15em 3em 15em;
+    margin: 0em 15em 0em 15em;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -133,7 +134,7 @@ body {
 
 .ausgabe3 {
     color: var(--bs-body-color);
-    margin: 0em 15em 3em 15em;
+    margin: 0em 15em 0em 15em;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
