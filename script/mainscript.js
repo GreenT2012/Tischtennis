@@ -29,6 +29,7 @@ function incrementClick1() {
 }// zählt die punkte runter von Spieler 1
 function incrementClick11() {
     updateDisplay1(--counterVal1);
+    updateDisplay1(--counterVal3);
 }
 // resettet alles, fängt also das spiel von vorne an
 function resetCounter1() {
@@ -39,10 +40,10 @@ function resetCounter1() {
     counterVal3 = 0;
     updateDisplay3(counterVal3);
     classChange1();
-    document.querySelector('.ausgabe1').innerHTML = player1;
-    document.querySelector('.ausgabe2').innerHTML = player2;
-    document.getElementById("name1").value = "";
-    document.getElementById("name2").value = "";
+    // document.querySelector('.ausgabe1').innerHTML = player1;
+    // document.querySelector('.ausgabe2').innerHTML = player2;
+    document.getElementById("name1").value = "Spieler 1";
+    document.getElementById("name2").value = "Spieler 2";
 }
 
 function updateDisplay1(val1) {
@@ -56,6 +57,7 @@ function incrementClick2() {
 }// zählt die punkte runter von Spieler 2
 function incrementClick22() {
     updateDisplay2(--counterVal2);
+    updateDisplay1(--counterVal3);
 }
 
 
@@ -72,6 +74,8 @@ function sideclick() {
 
 function updateDisplay3(val3) {
     document.getElementById("seitenwechsel").innerHTML = val3;
+
+
 }
 
 function classChange1() {
@@ -159,3 +163,7 @@ function fire(particleRatio, opts) {
         particleCount: Math.floor(count * particleRatio)
     }));
 }
+
+
+
+
