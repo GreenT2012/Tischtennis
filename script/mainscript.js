@@ -1,5 +1,4 @@
-let player1 = document.getElementsByName('spieler1').innerHTML
-let player2 = document.getElementById('spieler2').innerHTML
+
 
 document.getElementById("name1").addEventListener("keydown", (evt) => {
     if (evt.key === "Enter") {
@@ -29,7 +28,7 @@ function incrementClick1() {
 }// zählt die punkte runter von Spieler 1
 function incrementClick11() {
     updateDisplay1(--counterVal1);
-    updateDisplay1(--counterVal3);
+    updateDisplay3(--counterVal3);
 }
 // resettet alles, fängt also das spiel von vorne an
 function resetCounter1() {
@@ -40,10 +39,8 @@ function resetCounter1() {
     counterVal3 = 0;
     updateDisplay3(counterVal3);
     classChange1();
-    // document.querySelector('.ausgabe1').innerHTML = player1;
-    // document.querySelector('.ausgabe2').innerHTML = player2;
-    document.getElementById("name1").value = "Spieler 1";
-    document.getElementById("name2").value = "Spieler 2";
+
+
 }
 
 function updateDisplay1(val1) {
@@ -57,7 +54,8 @@ function incrementClick2() {
 }// zählt die punkte runter von Spieler 2
 function incrementClick22() {
     updateDisplay2(--counterVal2);
-    updateDisplay1(--counterVal3);
+    updateDisplay3(--counterVal3);
+
 }
 
 
@@ -81,16 +79,15 @@ function updateDisplay3(val3) {
 function classChange1() {
     if (counterVal3 >= 20) {
         document.getElementById("arrow").classList.toggle('arrow-left');
+        console.log('1 x seitenwechsel')
+    }
+    else if (counterVal3 % 2 === 0) {
+        document.getElementById("arrow").classList.toggle('arrow-left');
         console.log('2 x seitenwechsel')
     }
-    else {
-        if (counterVal3 % 2 == 0) {
-            document.getElementById("arrow").classList.toggle('arrow-left');
-            console.log('1 x seitenwechsel')
-        }
-    }
-
 }
+
+
 
 
 //steuert das konfetti
@@ -167,3 +164,25 @@ function fire(particleRatio, opts) {
 
 
 
+// if (document.getElementById('player1').checked === true) {
+//     document.getElementById('name1') = 'Niklas';
+// } else {
+
+// };
+
+// for (let i = 1; i < highscores.rows.length; i++) {
+//     let objCells = highscores.rows.item(i).cells;
+//     for (let i = index; i <= index; i++) {
+//         console.log(objCells.item(i));
+//     }
+// }
+
+
+
+const name1 = document.getElementById('name');
+
+function spielerwahl() {
+    if (document.getElementById('player1').checked) {
+        document.getElementById('.ausgabe1').innerHTML = document.getElementById('input#name');
+    }
+}
